@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)file:///C:/Users/Nicolas/OneDrive/Documents/Claude/Projects/Elastochem%20Formation/Formation_Risques_SPF_SIMDUT.html -->
+<html lang="fr-CA"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isolation Rivale — Formation Risques &amp; Dangers SPF + SIMDUT</title>
+<style>
+  :root {
+    --noir: #0a0a0a;
+    --noir-2: #161616;
+    --noir-3: #1f1f1f;
+    --orange: #ff6a00;
+    --orange-2: #ff8a2b;
+    --orange-soft: rgba(255,106,0,0.12);
+    --blanc: #f4f4f4;
+    --gris: #a0a0a0;
+    --rouge: #e53935;
+    --vert: #22c55e;
+    --jaune: #facc15;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--noir);
+    color: var(--blanc);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    border-bottom: 3px solid var(--orange);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 1.9rem;
+    color: var(--orange);
+    letter-spacing: 0.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  header p {
+    color: var(--gris);
+    margin-top: 6px;
+    font-size: 0.95rem;
+  }
+  .logo-badge {
+    display: inline-block;
+    background: var(--orange);
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    background: var(--noir-2);
+    height: 8px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .progress-fill {
+    background: linear-gradient(90deg, var(--orange) 0%, var(--orange-2) 100%);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  /* Tabs */
+  nav.tabs {
+    display: flex;
+    overflow-x: auto;
+    background: var(--noir-2);
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 8px;
+    z-index: 99;
+    scrollbar-width: thin;
+  }
+  nav.tabs button {
+    background: transparent;
+    color: var(--gris);
+    border: none;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  nav.tabs button:hover { color: var(--blanc); }
+  nav.tabs button.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+    background: var(--noir-3);
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 80px;
+  }
+  section.panel { display: none; animation: fadeIn 0.3s; }
+  section.panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h2 {
+    color: var(--orange);
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--orange-soft);
+  }
+  h3 { color: var(--blanc); font-size: 1.15rem; margin: 20px 0 10px; }
+  p { color: #d0d0d0; margin-bottom: 12px; }
+
+  .card {
+    background: var(--noir-2);
+    border: 1px solid #2a2a2a;
+    border-left: 4px solid var(--orange);
+    padding: 18px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .card.danger { border-left-color: var(--rouge); }
+  .card.warning { border-left-color: var(--jaune); }
+  .card.success { border-left-color: var(--vert); }
+
+  .alert-box {
+    background: rgba(229,57,53,0.08);
+    border: 1px solid var(--rouge);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+  }
+  .alert-box strong { color: var(--rouge); }
+
+  /* Grid for hazards / pictos */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+
+  /* SIMDUT pictogrammes */
+  .pictogram {
+    background: var(--noir-2);
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .pictogram:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,106,0,0.15);
+  }
+  .pictogram svg {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 8px;
+  }
+  .pictogram .name {
+    font-weight: 700;
+    color: var(--blanc);
+    font-size: 0.9rem;
+  }
+  .pictogram .desc {
+    display: none;
+    font-size: 0.82rem;
+    color: var(--gris);
+    margin-top: 8px;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .pictogram.open {
+    background: var(--noir-3);
+    border-color: var(--orange);
+  }
+  .pictogram.open .desc { display: block; }
+  .pictogram .applicable {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+  .pictogram .applicable.yes { background: var(--orange); color: #000; }
+
+  /* Checklist EPI */
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    background: var(--noir-2);
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin: 8px 0;
+    border-left: 3px solid #333;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .checklist-item:hover { border-left-color: var(--orange); background: var(--noir-3); }
+  .checklist-item.checked {
+    border-left-color: var(--vert);
+    background: rgba(34,197,94,0.08);
+  }
+  .checklist-item input {
+    margin-right: 12px;
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--orange);
+    cursor: pointer;
+  }
+  .checklist-item .content { flex: 1; }
+  .checklist-item .title { font-weight: 700; color: var(--blanc); }
+  .checklist-item .detail { font-size: 0.88rem; color: var(--gris); margin-top: 3px; }
+
+  /* Flip cards */
+  .flip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .flip-card {
+    perspective: 1000px;
+    height: 180px;
+    cursor: pointer;
+  }
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+  .flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .flip-front {
+    background: linear-gradient(135deg, var(--noir-2), var(--noir-3));
+    border: 2px solid var(--orange);
+  }
+  .flip-front .q {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .flip-front .hint { font-size: 0.75rem; color: var(--gris); }
+  .flip-back {
+    background: var(--orange);
+    color: #000;
+    transform: rotateY(180deg);
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* Quiz */
+  .quiz-question {
+    background: var(--noir-2);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 16px 0;
+    border: 1px solid #333;
+  }
+  .quiz-question .q-num {
+    color: var(--orange);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+  .quiz-question .q-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--blanc);
+    margin: 6px 0 14px;
+  }
+  .quiz-option {
+    display: block;
+    width: 100%;
+    background: var(--noir-3);
+    color: var(--blanc);
+    border: 1px solid #333;
+    padding: 12px 14px;
+    border-radius: 6px;
+    margin: 6px 0;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+  .quiz-option:hover:not(.answered) { border-color: var(--orange); background: #252525; }
+  .quiz-option.correct { background: rgba(34,197,94,0.2); border-color: var(--vert); color: var(--vert); }
+  .quiz-option.wrong { background: rgba(229,57,53,0.2); border-color: var(--rouge); color: var(--rouge); }
+  .quiz-feedback {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.correct { background: rgba(34,197,94,0.1); color: var(--vert); border-left: 3px solid var(--vert); padding-left: 14px; }
+  .quiz-feedback.wrong { background: rgba(229,57,53,0.1); color: var(--rouge); border-left: 3px solid var(--rouge); padding-left: 14px; }
+
+  #quiz-score {
+    background: linear-gradient(135deg, var(--orange), var(--orange-2));
+    color: #000;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: 800;
+    display: none;
+  }
+  #quiz-score.show { display: block; }
+  #quiz-score .big { font-size: 2.5rem; }
+
+  /* Accordion */
+  .accordion {
+    background: var(--noir-2);
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin: 8px 0;
+    overflow: hidden;
+  }
+  .accordion-header {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--blanc);
+    transition: background 0.2s;
+  }
+  .accordion-header:hover { background: var(--noir-3); }
+  .accordion-header .arrow { transition: transform 0.3s; color: var(--orange); }
+  .accordion.open .arrow { transform: rotate(90deg); }
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 18px;
+  }
+  .accordion.open .accordion-body {
+    max-height: 800px;
+    padding: 0 18px 16px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    background: var(--noir-2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th {
+    background: var(--orange);
+    color: #000;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  td {
+    padding: 10px 12px;
+    border-top: 1px solid #2a2a2a;
+    font-size: 0.88rem;
+    color: #d0d0d0;
+  }
+  tr:hover td { background: var(--noir-3); }
+
+  .key-number {
+    display: inline-block;
+    background: var(--orange);
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.9rem;
+  }
+
+  .urgence {
+    background: var(--rouge);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin: 16px 0;
+  }
+  .urgence .num { font-size: 1.8rem; display: block; letter-spacing: 2px; }
+
+  .btn-primary {
+    background: var(--orange);
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--orange-2); transform: translateY(-2px); }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--gris);
+    font-size: 0.82rem;
+    border-top: 1px solid #222;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.3rem; }
+    h2 { font-size: 1.3rem; }
+    nav.tabs button { padding: 12px 12px; font-size: 0.78rem; }
+    .pictogram svg { width: 60px; height: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-badge">ISOLATION RIVALE INC.</div>
+  <h1>Formation — Risques &amp; Dangers</h1>
+  <p>Polyuréthane giclé (SPF) • Produits chimiques • SIMDUT 2015</p>
+</header>
+
+<div class="progress-bar"><div class="progress-fill" id="progress" style="width: 11.1111%;"></div></div>
+
+<nav class="tabs" id="tabs">
+  <button class="tab-btn active" data-tab="intro">Accueil</button>
+  <button class="tab-btn" data-tab="chimie">Les 2 composants</button>
+  <button class="tab-btn" data-tab="sante">Dangers santé</button>
+  <button class="tab-btn" data-tab="simdut">SIMDUT</button>
+  <button class="tab-btn" data-tab="epi">EPI obligatoire</button>
+  <button class="tab-btn" data-tab="incendie">Incendie &amp; explosion</button>
+  <button class="tab-btn" data-tab="urgences">Urgences</button>
+  <button class="tab-btn" data-tab="flash">Flash cards</button>
+  <button class="tab-btn" data-tab="quiz">Quiz final</button>
+</nav>
+
+<main>
+
+<!-- ACCUEIL -->
+<section class="panel active" id="intro">
+  <h2>Pourquoi cette formation est critique</h2>
+  <p>Le polyuréthane giclé est un outil de construction puissant, mais il implique la manipulation de <strong>produits chimiques réactifs</strong> qui peuvent causer des dommages <strong>permanents</strong> à la santé si les règles ne sont pas respectées.</p>
+
+  <div class="alert-box">
+    <strong>Le chiffre à retenir :</strong> les isocyanates (composant A) sont la <strong>première cause chimique d'asthme professionnel</strong> au Canada et aux États-Unis. Une fois sensibilisé, tu ne peux plus jamais être exposé — même à une trace. Carrière terminée dans l'isolation.
+  </div>
+
+  <div class="grid">
+    <div class="card danger">
+      <h3>⚠️ Risque #1 — Isocyanates (MDI)</h3>
+      <p>Composant A. Sensibilisant respiratoire et cutané. Cause asthme irréversible, dermatite, irritation sévère des yeux et des voies respiratoires.</p>
+    </div>
+    <div class="card danger">
+      <h3>🔥 Risque #2 — Incendie</h3>
+      <p>La mousse fraîche est <strong>combustible</strong>. Chaleur excessive lors d'une passe trop épaisse = auto-inflammation possible.</p>
+    </div>
+    <div class="card warning">
+      <h3>💨 Risque #3 — Vapeurs &amp; aérosols</h3>
+      <p>Pendant le giclage, brouillard d'isocyanate dans l'air. Sans adduction d'air, tu respires directement le poison.</p>
+    </div>
+    <div class="card warning">
+      <h3>👁️ Risque #4 — Contact oculaire/cutané</h3>
+      <p>Une goutte d'ISO sur la peau = réaction allergique cumulative possible. Dans l'œil = urgence médicale.</p>
+    </div>
+  </div>
+
+  <h3>Comment utiliser ce document</h3>
+  <p>Clique sur chaque onglet en haut. Il y a des <strong>cartes interactives</strong> (clique pour retourner), une <strong>checklist EPI</strong>, des <strong>pictogrammes SIMDUT cliquables</strong>, et un <strong>quiz final</strong> pour valider tes connaissances avant chaque chantier.</p>
+
+  <div class="card success">
+    <h3>✅ Ton objectif</h3>
+    <p>Terminer les 9 sections + réussir le quiz à <strong>100%</strong> avant ton premier chantier en mai 2026. Imprime le document ou sauvegarde-le pour former tes futurs employés.</p>
+  </div>
+</section>
+
+<!-- CHIMIE -->
+<section class="panel" id="chimie">
+  <h2>Les 2 composants — ce que tu manipules réellement</h2>
+  <p>La mousse polyuréthane giclée est créée par la <strong>réaction chimique instantanée</strong> entre deux liquides qui se rencontrent au pistolet. Tant que les deux sont séparés, rien ne se passe. Une fois mélangés (ratio 1:1), la réaction est <strong>exothermique</strong> (dégage de la chaleur) et crée la mousse qui durcit en quelques secondes.</p>
+
+  <div class="grid">
+    <div class="card danger">
+      <h3>Côté A — ISO (Isocyanate / MDI)</h3>
+      <p><strong>Couleur :</strong> ambrée</p>
+      <p><strong>Composé principal :</strong> MDI polymérique (diphénylméthane diisocyanate)</p>
+      <p><strong>C'est le dangereux.</strong> Le MDI est un <strong>sensibilisant respiratoire</strong> (H334) et cutané (H317). Il peut causer de l'asthme à vie, même après une seule exposition intense.</p>
+      <p><strong>Réagit avec :</strong> eau, amines, bases fortes (dégage du CO₂, peut pressuriser un contenant fermé).</p>
+    </div>
+    <div class="card warning">
+      <h3>Côté B — Résine (Polyol préformulé)</h3>
+      <p><strong>Couleur :</strong> Burnt Sienna (brun-orangé)</p>
+      <p><strong>Contient :</strong> polyol + agents gonflants HFO + catalyseurs + retardateurs de flamme + surfactants (tensio-actifs)</p>
+      <p><strong>Moins toxique que le A</strong>, mais cause irritation cutanée, oculaire et respiratoire. Les amines catalytiques sont particulièrement irritantes.</p>
+      <p><strong>Sensible à la température :</strong> viscosité double à chaque baisse de 10°C.</p>
+    </div>
+  </div>
+
+  <h3>Règles de sécurité chimique de base</h3>
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">⚠️ Ne JAMAIS mélanger A et B hors du pistolet <span class="arrow">▶</span></div>
+    <div class="accordion-body"><p>La réaction est immédiate, exothermique, et dégage du CO₂. Dans un contenant fermé : <strong>risque d'explosion</strong>. Ne jamais verser le A dans un baril de B ou inverse.</p></div>
+  </div>
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">💧 Garder l'ISO loin de l'eau <span class="arrow">▶</span></div>
+    <div class="accordion-body"><p>L'ISO réagit avec l'humidité en formant du CO₂ et un solide. Un baril d'ISO contaminé = mousse qui prend dans le baril + pression qui monte. Toujours garder les barils scellés, stockés au sec, à l'abri du gel.</p></div>
+  </div>
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">🌡️ Conditionnement 48h à 18-30°C <span class="arrow">▶</span></div>
+    <div class="accordion-body"><p>Obligatoire avant usage. Un baril froid = viscosité hors spec = cavitation pompe + ratio débalancé + défauts mousse + possiblement montée en température incontrôlée.</p></div>
+  </div>
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">📦 FIFO et contrôle des lots <span class="arrow">▶</span></div>
+    <div class="accordion-body"><p>Premier entré, premier sorti. Vérifier dates d'expiration. Une résine B périmée = agents gonflants dégradés = mousse dense, lourde, sans performance isolante. Un ISO périmé ou contaminé = mousse qui ne prend pas.</p></div>
+  </div>
+</section>
+
+<!-- DANGERS SANTÉ -->
+<section class="panel" id="sante">
+  <h2>Dangers pour la santé — par voie d'exposition</h2>
+  <p>Les isocyanates peuvent entrer dans ton corps par <strong>3 voies</strong>. Chacune a ses effets propres, à court et à long terme.</p>
+
+  <div class="grid">
+    <div class="card danger">
+      <h3>🫁 Inhalation (la plus dangereuse)</h3>
+      <p><strong>Court terme :</strong> toux, essoufflement, serrement de poitrine, irritation gorge/nez.</p>
+      <p><strong>Long terme :</strong> <span class="key-number">asthme professionnel</span> — irréversible. Une fois sensibilisé, une exposition infime peut déclencher une crise d'asthme sévère.</p>
+      <p><strong>Piège :</strong> les symptômes peuvent apparaître plusieurs heures après l'exposition (réaction retardée).</p>
+    </div>
+    <div class="card danger">
+      <h3>🤚 Contact cutané</h3>
+      <p><strong>Court terme :</strong> rougeur, démangeaison, dermatite irritative.</p>
+      <p><strong>Long terme :</strong> dermatite allergique de contact. Peut aussi sensibiliser les voies respiratoires (absorption par la peau).</p>
+      <p><strong>Piège :</strong> la mousse durcie collée sur la peau s'enlève seulement par abrasion mécanique — peut blesser.</p>
+    </div>
+    <div class="card danger">
+      <h3>👁️ Contact oculaire</h3>
+      <p><strong>Court terme :</strong> brûlure chimique, larmoiement, vision trouble, conjonctivite.</p>
+      <p><strong>Long terme :</strong> dommage cornéen permanent possible si pas rincé immédiatement.</p>
+      <p><strong>Action :</strong> rinçage à l'eau 15 min minimum + consultation médicale.</p>
+    </div>
+    <div class="card warning">
+      <h3>🍽️ Ingestion (rare)</h3>
+      <p>Rare sur chantier. Ne jamais manger, boire ou fumer dans la zone de giclage. Laver les mains avant pause.</p>
+    </div>
+  </div>
+
+  <h3>Symptômes à reconnaître — chez toi ou un employé</h3>
+  <table>
+    <thead><tr><th>Symptôme</th><th>Que faire immédiatement</th></tr></thead>
+    <tbody>
+      <tr><td>Toux sèche, essoufflement après le giclage</td><td>Sortir à l'air frais, arrêter le travail, consulter si persiste</td></tr>
+      <tr><td>Serrement de poitrine, sifflement respiratoire</td><td>Signe d'asthme — urgence, appeler 911</td></tr>
+      <tr><td>Rougeur ou éruption sur les bras/cou</td><td>Laver à grande eau, identifier la brèche EPI</td></tr>
+      <tr><td>Yeux rouges et larmoyants sans contact direct</td><td>Vapeurs — renforcer ventilation, vérifier masque</td></tr>
+      <tr><td>Mal de tête, étourdissement</td><td>Sortir, aérer, vérifier adduction d'air</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <strong>Surveillance médicale recommandée :</strong> test de fonction pulmonaire (spirométrie) avant embauche puis annuellement pour chaque applicateur. Documenter dans le dossier RH. En cas de sensibilisation, l'employé doit être retiré définitivement de l'exposition.
+  </div>
+</section>
+
+<!-- SIMDUT -->
+<section class="panel" id="simdut">
+  <h2>SIMDUT 2015 — ce que tu dois savoir</h2>
+  <p>Le <strong>SIMDUT (Système d'information sur les matières dangereuses utilisées au travail)</strong> est la loi canadienne qui oblige à identifier, étiqueter et former les travailleurs sur les produits chimiques dangereux. Depuis 2015, il est harmonisé avec le SGH international.</p>
+
+  <h3>Les 3 piliers du SIMDUT</h3>
+  <div class="grid">
+    <div class="card">
+      <h3>1. Étiquettes</h3>
+      <p>Chaque contenant doit avoir une étiquette du fournisseur avec identificateur, pictogrammes, mention d'avertissement et conseils de prudence. Un contenant transvasé nécessite une étiquette de lieu de travail.</p>
+    </div>
+    <div class="card">
+      <h3>2. Fiches de données de sécurité (FDS)</h3>
+      <p>Format 16 sections standardisé. Obligatoire d'avoir les FDS du ISO et du polyol <strong>sur le chantier en tout temps</strong>, accessibles à tous les travailleurs.</p>
+    </div>
+    <div class="card">
+      <h3>3. Formation des travailleurs</h3>
+      <p>Obligatoire avant la manipulation. Doit couvrir les dangers, l'interprétation des étiquettes/FDS, l'usage des EPI, et les procédures d'urgence. Renouvelée au besoin.</p>
+    </div>
+  </div>
+
+  <h3>Pictogrammes applicables au polyuréthane giclé</h3>
+  <p><em>Clique sur chaque pictogramme pour voir son application au SPF.</em></p>
+
+  <div class="grid">
+    <div class="pictogram" onclick="this.classList.toggle(&#39;open&#39;)">
+      <span class="applicable yes">APPLICABLE</span>
+      <svg viewBox="0 0 100 100"><polygon points="50,10 90,80 10,80" fill="none" stroke="#ff6a00" stroke-width="4"></polygon><text x="50" y="65" text-anchor="middle" font-size="40" fill="#fff" font-weight="bold">!</text></svg>
+      <div class="name">Point d'exclamation</div>
+      <div class="desc"><strong>Sur le ISO et le polyol.</strong> Indique : irritant cutané/oculaire, sensibilisant cutané, toxicité aiguë (nocif). C'est le pictogramme le plus courant sur les FDS de SPF.</div>
+    </div>
+
+    <div class="pictogram" onclick="this.classList.toggle(&#39;open&#39;)">
+      <span class="applicable yes">APPLICABLE</span>
+      <svg viewBox="0 0 100 100"><polygon points="50,10 90,80 10,80" fill="none" stroke="#ff6a00" stroke-width="4"></polygon><g transform="translate(50,55)"><circle cx="0" cy="-10" r="10" fill="none" stroke="#fff" stroke-width="3"></circle><path d="M -15 5 Q 0 -5 15 5 L 15 15 L -15 15 Z" fill="#fff"></path><path d="M -8 -3 L 8 -3" stroke="#fff" stroke-width="2"></path></g></svg>
+      <div class="name">Danger pour la santé</div>
+      <div class="desc"><strong>Sur le ISO (MDI).</strong> Indique : sensibilisant respiratoire (asthme H334), toxicité spécifique sur organe cible (voies respiratoires). C'est LE pictogramme critique pour les isocyanates.</div>
+    </div>
+
+    <div class="pictogram" onclick="this.classList.toggle(&#39;open&#39;)">
+      <span class="applicable yes">APPLICABLE</span>
+      <svg viewBox="0 0 100 100"><polygon points="50,10 90,80 10,80" fill="none" stroke="#ff6a00" stroke-width="4"></polygon><path d="M 50 30 Q 40 45 50 55 Q 60 65 50 75" stroke="#ff6a00" stroke-width="4" fill="none"></path><path d="M 30 55 Q 40 65 30 75" stroke="#ff6a00" stroke-width="3" fill="none"></path><path d="M 70 55 Q 60 65 70 75" stroke="#ff6a00" stroke-width="3" fill="none"></path></svg>
+      <div class="name">Flamme (inflammable)</div>
+      <div class="desc"><strong>Parfois sur le polyol selon formulation.</strong> La mousse fraîchement appliquée est combustible. Vérifier la FDS spécifique de ton produit Elastochem.</div>
+    </div>
+
+    <div class="pictogram" onclick="this.classList.toggle(&#39;open&#39;)">
+      <span class="applicable yes">APPLICABLE</span>
+      <svg viewBox="0 0 100 100"><polygon points="50,10 90,80 10,80" fill="none" stroke="#ff6a00" stroke-width="4"></polygon><g transform="translate(50,55)"><rect x="-18" y="-15" width="12" height="20" rx="2" fill="#fff"></rect><rect x="6" y="-15" width="12" height="20" rx="2" fill="#fff"></rect><path d="M -6 -5 L 6 -5" stroke="#fff" stroke-width="2"></path><path d="M -15 10 L 15 10" stroke="#fff" stroke-width="2"></path></g></svg>
+      <div class="name">Gaz sous pression</div>
+      <div class="desc"><strong>Variable.</strong> Certaines fiches mentionnent ce pictogramme pour les agents gonflants. Tes barils ne sont pas pressurisés, mais ton équipement Graco l'est : 1000-1500 psi en opération.</div>
+    </div>
+  </div>
+
+  <h3>Les 16 sections d'une FDS — ce que tu dois lire en priorité</h3>
+  <table>
+    <thead><tr><th>Section</th><th>Pourquoi c'est critique</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Identification</strong></td><td>Nom du produit, fournisseur, numéro d'urgence</td></tr>
+      <tr><td><strong>2. Identification des dangers</strong></td><td>Pictogrammes, mentions H (H317, H334, etc.)</td></tr>
+      <tr><td><strong>4. Premiers soins</strong></td><td>À lire AVANT l'accident, pas pendant</td></tr>
+      <tr><td><strong>5. Lutte contre incendie</strong></td><td>Moyens d'extinction appropriés</td></tr>
+      <tr><td><strong>6. Déversement accidentel</strong></td><td>Procédure de confinement et nettoyage</td></tr>
+      <tr><td><strong>7. Manipulation et stockage</strong></td><td>Températures, incompatibilités</td></tr>
+      <tr><td><strong>8. Contrôle de l'exposition / EPI</strong></td><td>Limites d'exposition (VEMP), EPI requis</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <strong>Obligation légale CNESST :</strong> chaque travailleur qui manipule du SPF doit avoir reçu une formation SIMDUT documentée. Garder les preuves de formation dans le dossier employé. En cas d'inspection ou d'accident, c'est la première chose demandée.
+  </div>
+</section>
+
+<!-- EPI -->
+<section class="panel" id="epi">
+  <h2>EPI obligatoire — Checklist avant chaque giclage</h2>
+  <p>Le pistolet est à haute pression (1000-1500 psi). À cette pression, <strong>l'air respiratoire ambiant est saturé de brouillard d'ISO.</strong> Aucune cartouche traditionnelle ne filtre suffisamment. Tu <strong>dois</strong> porter l'équipement complet ci-dessous.</p>
+
+  <p><em>Coche chaque item pour t'assurer que rien n'est oublié.</em></p>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">🫁 Appareil respiratoire à adduction d'air (SAR)</div>
+      <div class="detail">Martech 4 étages. NON négociable pour giclage intérieur. Cartouche simple = insuffisant. Vérifier pression d'air respirable, durée d'autonomie, état des flexibles.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">🥽 Protection oculaire complète</div>
+      <div class="detail">Intégrée au masque ou lunettes étanches sous capuchon. Pas de lunettes de sécurité ouvertes seulement.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">👤 Combinaison jetable intégrale (Tyvek)</div>
+      <div class="detail">Capuchon inclus. À usage unique — jeter après chaque journée ou si contaminée. Fermer tous les élastiques poignets/chevilles.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">🧤 Gants nitrile ou butyle</div>
+      <div class="detail">Résistants aux isocyanates. Changer si déchirés ou contaminés. Les gants de latex NE PROTÈGENT PAS contre le MDI.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">🥾 Bottes couvertes + protèges-bottes</div>
+      <div class="detail">Bottes de travail classiques acceptables, mais recouvertes de couvre-bottes Tyvek pour empêcher contamination.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">🚧 Zone délimitée / signalisation</div>
+      <div class="detail">Affiches « NE PAS ENTRER — GICLAGE EN COURS ». Seuls les travailleurs formés + EPI complet entrent. Maintenir jusqu'à 24h après dernier giclage.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">💨 Ventilation mécanique</div>
+      <div class="detail">Ventilateurs d'extraction (pas seulement circulation). Pression négative recommandée pour empêcher migration des vapeurs vers zones occupées.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">📋 FDS accessibles sur le chantier</div>
+      <div class="detail">Côté A et côté B. Format papier OU numérique accessible immédiatement.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">🧯 Extincteur ABC à portée</div>
+      <div class="detail">Minimum 10 lb. Vérifier date de dernière inspection.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item" onclick="toggleCheck(this)">
+    <input type="checkbox">
+    <div class="content">
+      <div class="title">🚿 Station de rinçage oculaire</div>
+      <div class="detail">Eau potable minimum 15 min d'autonomie. Bouteilles de rinçage saline portables acceptables comme complément, pas remplacement.</div>
+    </div>
+  </div>
+
+  <div class="card success" style="margin-top: 20px;">
+    <h3>Règle d'or</h3>
+    <p>Avant chaque démarrage, <strong>refaire</strong> cette checklist à haute voix avec ton coéquipier. Un item manquant = arrêt du travail. Pas de raccourci.</p>
+  </div>
+</section>
+
+<!-- INCENDIE -->
+<section class="panel" id="incendie">
+  <h2>Incendie &amp; auto-inflammation</h2>
+  <p>C'est le danger <strong>sous-estimé</strong> du polyuréthane giclé. Plusieurs incendies majeurs sur chantier sont causés par une mauvaise technique d'application.</p>
+
+  <div class="alert-box">
+    <strong>Le mécanisme :</strong> la réaction entre A et B est exothermique. Elle dégage de la chaleur. Si tu appliques une passe trop épaisse (&gt; 2 po), la chaleur s'accumule au centre de la masse et peut atteindre <strong>400-600°F</strong> — température suffisante pour une auto-inflammation.
+  </div>
+
+  <h3>Les 4 causes d'incendie sur chantier SPF</h3>
+  <div class="grid">
+    <div class="card danger">
+      <h3>1. Passe trop épaisse</h3>
+      <p>Plus de 2 po en une seule passe. La chaleur ne peut pas s'évacuer. <strong>Règle absolue : ½ à 2 po maximum par passe</strong>, attendre refroidissement avant prochaine couche.</p>
+    </div>
+    <div class="card danger">
+      <h3>2. Source d'ignition proche</h3>
+      <p>Éclairage halogène chaud, flamme nue, soudure, étincelle électrique, cigarette. Les vapeurs d'agent gonflant peuvent s'enflammer.</p>
+    </div>
+    <div class="card danger">
+      <h3>3. Proximité de chaleur</h3>
+      <p>Ne jamais appliquer à moins de 3 po d'une source de chaleur (cheminée, conduit de chauffage, boîtier électrique non protégé).</p>
+    </div>
+    <div class="card danger">
+      <h3>4. Ventilation inadéquate</h3>
+      <p>Accumulation de vapeurs organiques dans un espace clos = atmosphère explosive possible. Surtout en espace confiné (entretoits, vides sanitaires).</p>
+    </div>
+  </div>
+
+  <h3>Mesures de prévention obligatoires</h3>
+  <ol style="margin-left: 20px; color: #d0d0d0;">
+    <li style="margin: 8px 0;">Inspection préalable du chantier : identifier toutes les sources d'ignition possibles.</li>
+    <li style="margin: 8px 0;">Couper l'alimentation électrique des circuits non essentiels dans la zone.</li>
+    <li style="margin: 8px 0;">Retirer ou couvrir les éclairages à forte chaleur (halogènes, incandescents proches).</li>
+    <li style="margin: 8px 0;">Respecter le <span class="key-number">½ à 2 po</span> par passe — jamais de raccourci.</li>
+    <li style="margin: 8px 0;">Extincteur ABC 10 lb minimum à portée de bras.</li>
+    <li style="margin: 8px 0;">Ventilation forcée pendant et après application.</li>
+    <li style="margin: 8px 0;">Inspection thermique visuelle après giclage (toucher au gant épais — ne doit pas être chaud 10 min après).</li>
+  </ol>
+
+  <div class="card warning">
+    <h3>Norme de protection thermique</h3>
+    <p>Une fois la mousse installée, la norme exige qu'elle soit recouverte d'une <strong>barrière thermique</strong> (ex. placoplâtre 12,7 mm) dans les espaces occupés, car la mousse polyuréthane reste combustible après durcissement. CAN/ULC-S705.2 précise les exigences.</p>
+  </div>
+</section>
+
+<!-- URGENCES -->
+<section class="panel" id="urgences">
+  <h2>Protocoles d'urgence</h2>
+  <p>Affiche ces numéros et procédures dans le camion et sur chaque chantier.</p>
+
+  <div class="urgence">
+    CANUTEC (transport matières dangereuses, 24/7)
+    <span class="num">613-996-6666</span>
+  </div>
+  <div class="urgence" style="background: #000; border: 2px solid var(--rouge);">
+    URGENCE MÉDICALE / INCENDIE
+    <span class="num">911</span>
+  </div>
+
+  <h3>Procédures par type d'incident</h3>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">🤚 Contact cutané avec ISO ou résine <span class="arrow">▶</span></div>
+    <div class="accordion-body">
+      <ol style="margin-left: 18px; color: #d0d0d0;">
+        <li>Retirer immédiatement les vêtements contaminés (ne pas les remettre).</li>
+        <li>Laver la peau à l'eau tiède et au savon pendant <strong>15 minutes minimum</strong>.</li>
+        <li>Ne pas utiliser de solvant (acétone) — ouvre les pores et aggrave l'absorption.</li>
+        <li>Surveiller rougeur, démangeaison, éruption pendant 24-48h.</li>
+        <li>Consulter un médecin si symptômes persistent.</li>
+        <li>Documenter l'incident (date, heure, circonstances, action) au registre santé-sécurité.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">👁️ Contact oculaire (URGENCE) <span class="arrow">▶</span></div>
+    <div class="accordion-body">
+      <ol style="margin-left: 18px; color: #d0d0d0;">
+        <li>Rincer immédiatement à l'eau tiède — paupières ouvertes — pendant <strong>15 minutes minimum</strong>.</li>
+        <li>Retirer lentilles de contact si présentes et possible sans forcer.</li>
+        <li>Appeler le 911 ou transport immédiat aux urgences ophtalmologiques.</li>
+        <li>Apporter la FDS du produit contaminant à l'hôpital.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">🫁 Inhalation — difficulté respiratoire <span class="arrow">▶</span></div>
+    <div class="accordion-body">
+      <ol style="margin-left: 18px; color: #d0d0d0;">
+        <li>Sortir la personne à l'air frais immédiatement.</li>
+        <li>Desserrer vêtements serrés au cou/poitrine.</li>
+        <li>Si difficulté respiratoire sévère, sifflement, cyanose : <strong>911</strong>.</li>
+        <li>Ne pas donner à manger ou boire si la personne est somnolente.</li>
+        <li>Surveiller 24h : symptômes peuvent apparaître avec délai.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">💧 Déversement de produit <span class="arrow">▶</span></div>
+    <div class="accordion-body">
+      <ol style="margin-left: 18px; color: #d0d0d0;">
+        <li>Évacuer les personnes non protégées de la zone.</li>
+        <li>Ventiler au maximum.</li>
+        <li>EPI complet avant intervention.</li>
+        <li>Confiner avec absorbant inerte (vermiculite, sable sec — <strong>pas de sciure de bois, pas de copeaux absorbants</strong> car l'ISO réagit).</li>
+        <li>Ramasser dans contenant étiqueté « déchet dangereux ».</li>
+        <li>Décontaminer la surface avec neutralisant recommandé FDS.</li>
+        <li>Déversement &gt; 4 L : déclarer à CANUTEC et CNESST.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="accordion-header">🔥 Début d'incendie de mousse <span class="arrow">▶</span></div>
+    <div class="accordion-body">
+      <ol style="margin-left: 18px; color: #d0d0d0;">
+        <li>Évacuer la zone — la mousse qui brûle dégage du cyanure et du CO toxiques.</li>
+        <li>Fermer portes/fenêtres pour limiter apport en oxygène si sécuritaire.</li>
+        <li>Extincteur ABC pour début d'incendie seulement.</li>
+        <li>911 dès que l'incendie dépasse l'étendue d'une feuille 8,5x11.</li>
+        <li>Ne jamais respirer les fumées — elles sont hautement toxiques.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>Temps de réoccupation minimum</h3>
+  <div class="card warning">
+    <p>Après la fin du giclage, la zone doit rester inoccupée (sauf applicateurs en EPI) pendant :</p>
+    <ul style="margin-left: 18px; color: #d0d0d0;">
+      <li><strong>24 heures minimum</strong> avant réoccupation par travailleurs sans EPI.</li>
+      <li><strong>24-72 heures</strong> avant réoccupation par occupants résidentiels (vérifier FDS Elastochem spécifique).</li>
+      <li>Ventilation mécanique active pendant toute cette période.</li>
+      <li>Informer le client par écrit du délai obligatoire. Faire signer une décharge confirmant qu'il ne retournera pas dans la zone avant le délai.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FLASH CARDS -->
+<section class="panel" id="flash">
+  <h2>Flash cards — Révision rapide</h2>
+  <p>Clique sur chaque carte pour voir la réponse. Idéal pour réviser avant un chantier ou former un nouvel employé.</p>
+
+  <div class="flip-grid" id="flip-grid">
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Quel est le composant le plus dangereux du SPF ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">Le côté A — l'isocyanate (MDI). C'est un sensibilisant respiratoire qui peut causer de l'asthme permanent.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Épaisseur maximale par passe ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">½ à 2 pouces maximum. Au-delà, risque d'auto-inflammation par chaleur exothermique.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Quel type de respirateur est obligatoire ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">Appareil à adduction d'air (SAR). Martech 4 étages. Cartouches seules = insuffisant contre les isocyanates.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Que faire si ISO entre dans un œil ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">Rinçage à l'eau tiède minimum 15 minutes + transport immédiat à l'urgence avec la FDS.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Combien de temps avant réoccupation ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">24 heures minimum (travailleurs sans EPI). 24-72h pour occupants résidentiels selon FDS Elastochem.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Numéro d'urgence CANUTEC ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">613-996-6666 — disponible 24/7 pour incidents de matières dangereuses.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Pictogramme SIMDUT pour sensibilisant respiratoire ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">« Danger pour la santé » — la silhouette humaine avec étoile sur le torse. Présent sur la FDS du ISO.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Conditionnement des barils avant usage ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">48 heures minimum à 18-30°C. Jamais sur sol froid. FIFO pour rotation des stocks.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Ratio de mélange A:B ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">1:1 en volume. Toute déviation = défaut de mousse + risque de sensibilisation accrue (excès A = vapeurs ISO non réagies).</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Avec quoi ne JAMAIS mélanger l'ISO ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">Eau, amines, bases fortes. Réagit en dégageant CO₂ — dans contenant fermé = explosion.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Durée de conservation des formulaires QC ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">Minimum 7 ans. Exigence CAN/ULC-S705.2 et protection légale en cas de réclamation.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle(&#39;flipped&#39;)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="q">Absorbant à utiliser pour un déversement ISO ?</div><div class="hint">(clique pour la réponse)</div></div>
+        <div class="flip-back">Vermiculite ou sable sec. JAMAIS de sciure de bois ni copeaux organiques — réaction avec l'humidité du matériau.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="panel" id="quiz">
+  <h2>Quiz final — Valide tes connaissances</h2>
+  <p>12 questions. Vise 100%. Tu peux recommencer autant de fois que tu veux.</p>
+
+  <div id="quiz-container"><div class="quiz-question">
+        <div class="q-num">QUESTION 1 / 12</div>
+        <div class="q-text">Quel composant du SPF contient le MDI (isocyanate) ?</div>
+        <div class="q-options" data-q="0">
+          <button class="quiz-option" data-o="0">Côté A</button><button class="quiz-option" data-o="1">Côté B</button><button class="quiz-option" data-o="2">Les deux</button><button class="quiz-option" data-o="3">Ni l'un ni l'autre</button>
+        </div>
+        <div class="quiz-feedback" data-fb="0"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 2 / 12</div>
+        <div class="q-text">Quelle maladie professionnelle les isocyanates peuvent-ils causer de façon irréversible ?</div>
+        <div class="q-options" data-q="1">
+          <button class="quiz-option" data-o="0">Cancer du poumon</button><button class="quiz-option" data-o="1">Asthme professionnel</button><button class="quiz-option" data-o="2">Silicose</button><button class="quiz-option" data-o="3">Emphysème</button>
+        </div>
+        <div class="quiz-feedback" data-fb="1"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 3 / 12</div>
+        <div class="q-text">Quelle est l'épaisseur MAXIMALE par passe lors du giclage ?</div>
+        <div class="q-options" data-q="2">
+          <button class="quiz-option" data-o="0">½ pouce</button><button class="quiz-option" data-o="1">2 pouces</button><button class="quiz-option" data-o="2">3 pouces</button><button class="quiz-option" data-o="3">5 pouces</button>
+        </div>
+        <div class="quiz-feedback" data-fb="2"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 4 / 12</div>
+        <div class="q-text">Quel type de respirateur est obligatoire pour giclage intérieur ?</div>
+        <div class="q-options" data-q="3">
+          <button class="quiz-option" data-o="0">Masque N95</button><button class="quiz-option" data-o="1">Cartouche vapeurs organiques</button><button class="quiz-option" data-o="2">Appareil à adduction d'air (SAR)</button><button class="quiz-option" data-o="3">Demi-masque avec filtre P100</button>
+        </div>
+        <div class="quiz-feedback" data-fb="3"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 5 / 12</div>
+        <div class="q-text">Combien de temps faut-il laver la peau en cas de contact avec ISO ?</div>
+        <div class="q-options" data-q="4">
+          <button class="quiz-option" data-o="0">1 minute</button><button class="quiz-option" data-o="1">5 minutes</button><button class="quiz-option" data-o="2">15 minutes minimum</button><button class="quiz-option" data-o="3">30 secondes suffisent</button>
+        </div>
+        <div class="quiz-feedback" data-fb="4"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 6 / 12</div>
+        <div class="q-text">Quel est le numéro de CANUTEC (urgence matières dangereuses) ?</div>
+        <div class="q-options" data-q="5">
+          <button class="quiz-option" data-o="0">911</button><button class="quiz-option" data-o="1">811</button><button class="quiz-option" data-o="2">613-996-6666</button><button class="quiz-option" data-o="3">1-800-CANUTEC</button>
+        </div>
+        <div class="quiz-feedback" data-fb="5"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 7 / 12</div>
+        <div class="q-text">Quel pictogramme SIMDUT indique un sensibilisant respiratoire ?</div>
+        <div class="q-options" data-q="6">
+          <button class="quiz-option" data-o="0">Point d'exclamation</button><button class="quiz-option" data-o="1">Flamme</button><button class="quiz-option" data-o="2">Danger pour la santé (silhouette humaine)</button><button class="quiz-option" data-o="3">Tête de mort</button>
+        </div>
+        <div class="quiz-feedback" data-fb="6"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 8 / 12</div>
+        <div class="q-text">Combien de temps faut-il conditionner les barils avant usage ?</div>
+        <div class="q-options" data-q="7">
+          <button class="quiz-option" data-o="0">12 heures</button><button class="quiz-option" data-o="1">24 heures</button><button class="quiz-option" data-o="2">48 heures minimum à 18-30°C</button><button class="quiz-option" data-o="3">Aucun conditionnement requis</button>
+        </div>
+        <div class="quiz-feedback" data-fb="7"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 9 / 12</div>
+        <div class="q-text">Temps de réoccupation résidentielle après giclage ?</div>
+        <div class="q-options" data-q="8">
+          <button class="quiz-option" data-o="0">2 heures</button><button class="quiz-option" data-o="1">6 heures</button><button class="quiz-option" data-o="2">24-72 heures selon FDS</button><button class="quiz-option" data-o="3">Pas de délai</button>
+        </div>
+        <div class="quiz-feedback" data-fb="8"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 10 / 12</div>
+        <div class="q-text">Quel absorbant utiliser pour un déversement d'ISO ?</div>
+        <div class="q-options" data-q="9">
+          <button class="quiz-option" data-o="0">Sciure de bois</button><button class="quiz-option" data-o="1">Vermiculite ou sable sec</button><button class="quiz-option" data-o="2">Papier journal</button><button class="quiz-option" data-o="3">Chiffons de coton</button>
+        </div>
+        <div class="quiz-feedback" data-fb="9"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 11 / 12</div>
+        <div class="q-text">Combien de temps les formulaires QC doivent-ils être conservés ?</div>
+        <div class="q-options" data-q="10">
+          <button class="quiz-option" data-o="0">1 an</button><button class="quiz-option" data-o="1">3 ans</button><button class="quiz-option" data-o="2">5 ans</button><button class="quiz-option" data-o="3">Minimum 7 ans</button>
+        </div>
+        <div class="quiz-feedback" data-fb="10"></div>
+      </div><div class="quiz-question">
+        <div class="q-num">QUESTION 12 / 12</div>
+        <div class="q-text">Que dégage la mousse polyuréthane en combustion ?</div>
+        <div class="q-options" data-q="11">
+          <button class="quiz-option" data-o="0">Seulement de la vapeur d'eau</button><button class="quiz-option" data-o="1">Cyanure et monoxyde de carbone (toxiques)</button><button class="quiz-option" data-o="2">Seulement de la fumée noire inoffensive</button><button class="quiz-option" data-o="3">Aucun gaz toxique</button>
+        </div>
+        <div class="quiz-feedback" data-fb="11"></div>
+      </div></div>
+
+  <div id="quiz-score"></div>
+
+  <button class="btn-primary" onclick="resetQuiz()" id="reset-btn" style="display:none; margin-top: 20px;">Recommencer le quiz</button>
+</section>
+
+</main>
+
+<footer>
+  Document de formation interne — Isolation Rivale Inc. — À compléter avec les pages 88-93 du manuel Elastochem lorsque reçues.<br>
+  Toujours consulter les FDS officielles Elastochem en cas de doute. Mise à jour : avril 2026.
+</footer>
+
+<script>
+  // TAB NAVIGATION
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+  const progress = document.getElementById('progress');
+  const totalTabs = tabs.length;
+  let currentTab = 0;
+
+  tabs.forEach((tab, idx) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+      currentTab = idx;
+      updateProgress();
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    });
+  });
+
+  function updateProgress() {
+    const pct = ((currentTab + 1) / totalTabs) * 100;
+    progress.style.width = pct + '%';
+  }
+  updateProgress();
+
+  // ACCORDION
+  function toggleAcc(el) {
+    el.classList.toggle('open');
+  }
+
+  // CHECKLIST
+  function toggleCheck(el) {
+    const input = el.querySelector('input');
+    input.checked = !input.checked;
+    el.classList.toggle('checked', input.checked);
+  }
+
+  // QUIZ DATA
+  const quizData = [
+    {
+      q: "Quel composant du SPF contient le MDI (isocyanate) ?",
+      options: ["Côté A", "Côté B", "Les deux", "Ni l'un ni l'autre"],
+      correct: 0,
+      explain: "Le côté A est l'isocyanate (MDI polymérique). C'est le composant sensibilisant respiratoire."
+    },
+    {
+      q: "Quelle maladie professionnelle les isocyanates peuvent-ils causer de façon irréversible ?",
+      options: ["Cancer du poumon", "Asthme professionnel", "Silicose", "Emphysème"],
+      correct: 1,
+      explain: "L'asthme professionnel causé par les isocyanates est irréversible. Une fois sensibilisé, même une trace déclenche une crise."
+    },
+    {
+      q: "Quelle est l'épaisseur MAXIMALE par passe lors du giclage ?",
+      options: ["½ pouce", "2 pouces", "3 pouces", "5 pouces"],
+      correct: 1,
+      explain: "½ à 2 pouces maximum. Au-delà, la chaleur exothermique s'accumule et peut causer une auto-inflammation."
+    },
+    {
+      q: "Quel type de respirateur est obligatoire pour giclage intérieur ?",
+      options: ["Masque N95", "Cartouche vapeurs organiques", "Appareil à adduction d'air (SAR)", "Demi-masque avec filtre P100"],
+      correct: 2,
+      explain: "Seul l'appareil à adduction d'air (SAR) protège adéquatement contre le brouillard d'isocyanates au giclage haute pression."
+    },
+    {
+      q: "Combien de temps faut-il laver la peau en cas de contact avec ISO ?",
+      options: ["1 minute", "5 minutes", "15 minutes minimum", "30 secondes suffisent"],
+      correct: 2,
+      explain: "15 minutes minimum à l'eau tiède et au savon. Ne JAMAIS utiliser d'acétone — ça ouvre les pores et aggrave l'absorption."
+    },
+    {
+      q: "Quel est le numéro de CANUTEC (urgence matières dangereuses) ?",
+      options: ["911", "811", "613-996-6666", "1-800-CANUTEC"],
+      correct: 2,
+      explain: "CANUTEC : 613-996-6666, 24/7. À afficher dans le camion et sur chaque chantier."
+    },
+    {
+      q: "Quel pictogramme SIMDUT indique un sensibilisant respiratoire ?",
+      options: ["Point d'exclamation", "Flamme", "Danger pour la santé (silhouette humaine)", "Tête de mort"],
+      correct: 2,
+      explain: "Le pictogramme « Danger pour la santé » (silhouette avec étoile sur le torse) indique sensibilisation respiratoire. Présent sur la FDS du ISO."
+    },
+    {
+      q: "Combien de temps faut-il conditionner les barils avant usage ?",
+      options: ["12 heures", "24 heures", "48 heures minimum à 18-30°C", "Aucun conditionnement requis"],
+      correct: 2,
+      explain: "48 heures minimum à 18-30°C. Sinon, viscosité débalancée, cavitation pompe, défauts de mousse."
+    },
+    {
+      q: "Temps de réoccupation résidentielle après giclage ?",
+      options: ["2 heures", "6 heures", "24-72 heures selon FDS", "Pas de délai"],
+      correct: 2,
+      explain: "24 heures minimum pour travailleurs sans EPI, 24-72h pour occupants résidentiels. Toujours vérifier la FDS spécifique Elastochem."
+    },
+    {
+      q: "Quel absorbant utiliser pour un déversement d'ISO ?",
+      options: ["Sciure de bois", "Vermiculite ou sable sec", "Papier journal", "Chiffons de coton"],
+      correct: 1,
+      explain: "Vermiculite ou sable sec — absorbants inertes. La sciure réagit avec l'humidité du bois + ISO."
+    },
+    {
+      q: "Combien de temps les formulaires QC doivent-ils être conservés ?",
+      options: ["1 an", "3 ans", "5 ans", "Minimum 7 ans"],
+      correct: 3,
+      explain: "Minimum 7 ans. Exigence CAN/ULC-S705.2 et protection légale en cas de réclamation du client."
+    },
+    {
+      q: "Que dégage la mousse polyuréthane en combustion ?",
+      options: ["Seulement de la vapeur d'eau", "Cyanure et monoxyde de carbone (toxiques)", "Seulement de la fumée noire inoffensive", "Aucun gaz toxique"],
+      correct: 1,
+      explain: "La mousse en feu dégage du cyanure et du CO — gaz hautement toxiques. Évacuer immédiatement, ne jamais respirer les fumées."
+    }
+  ];
+
+  function renderQuiz() {
+    const container = document.getElementById('quiz-container');
+    container.innerHTML = '';
+    quizData.forEach((item, idx) => {
+      const div = document.createElement('div');
+      div.className = 'quiz-question';
+      div.innerHTML = `
+        <div class="q-num">QUESTION ${idx + 1} / ${quizData.length}</div>
+        <div class="q-text">${item.q}</div>
+        <div class="q-options" data-q="${idx}">
+          ${item.options.map((opt, oIdx) => `<button class="quiz-option" data-o="${oIdx}">${opt}</button>`).join('')}
+        </div>
+        <div class="quiz-feedback" data-fb="${idx}"></div>
+      `;
+      container.appendChild(div);
+    });
+
+    container.querySelectorAll('.quiz-option').forEach(btn => {
+      btn.addEventListener('click', handleAnswer);
+    });
+  }
+
+  let answered = new Set();
+  let correct = 0;
+
+  function handleAnswer(e) {
+    const btn = e.currentTarget;
+    const qIdx = parseInt(btn.parentElement.dataset.q);
+    if (answered.has(qIdx)) return;
+    answered.add(qIdx);
+    const oIdx = parseInt(btn.dataset.o);
+    const item = quizData[qIdx];
+    const fb = document.querySelector(`[data-fb="${qIdx}"]`);
+
+    btn.parentElement.querySelectorAll('.quiz-option').forEach(b => b.classList.add('answered'));
+
+    if (oIdx === item.correct) {
+      btn.classList.add('correct');
+      fb.classList.add('show', 'correct');
+      fb.innerHTML = '✅ <strong>Bonne réponse.</strong> ' + item.explain;
+      correct++;
+    } else {
+      btn.classList.add('wrong');
+      btn.parentElement.querySelectorAll('.quiz-option')[item.correct].classList.add('correct');
+      fb.classList.add('show', 'wrong');
+      fb.innerHTML = '❌ <strong>Incorrect.</strong> ' + item.explain;
+    }
+
+    if (answered.size === quizData.length) {
+      showScore();
+    }
+  }
+
+  function showScore() {
+    const score = document.getElementById('quiz-score');
+    const pct = Math.round((correct / quizData.length) * 100);
+    let msg = '';
+    if (pct === 100) msg = '🏆 Parfait ! Tu es prêt pour le chantier.';
+    else if (pct >= 80) msg = '👍 Bon score. Revois les sections où tu as manqué.';
+    else if (pct >= 60) msg = '⚠️ À améliorer. Reprends les sections avant le chantier.';
+    else msg = '🚨 Score insuffisant. Reprends la formation complète avant d\'appliquer.';
+
+    score.innerHTML = `<div class="big">${correct} / ${quizData.length}</div><div>${pct}%</div><div style="margin-top: 10px;">${msg}</div>`;
+    score.classList.add('show');
+    document.getElementById('reset-btn').style.display = 'inline-block';
+    score.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function resetQuiz() {
+    answered.clear();
+    correct = 0;
+    document.getElementById('quiz-score').classList.remove('show');
+    document.getElementById('reset-btn').style.display = 'none';
+    renderQuiz();
+  }
+
+  renderQuiz();
+
+</script>
+
+
+
+</body></html>
